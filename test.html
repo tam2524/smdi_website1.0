@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message with Twilio</title>
+    <script>
+        function sendMessage() {
+            fetch('sendSMS.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = 'Error: ' + error;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Send Message via Twilio</h1>
+    <button onclick="sendMessage()">Send Message</button>
+    <p id="result"></p>
+</body>
+</html>
